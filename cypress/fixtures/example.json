@@ -1,4 +1,7 @@
 {
-  "username": "Max",
-  "password": "passwdMax"
+  "username": "James",
+  "password": "james1500",
+  "email": "james.bond@example.com",
+  "contactName": "James Bond",
+  "message": "I love this page, congratulations to the developers!"
 }
