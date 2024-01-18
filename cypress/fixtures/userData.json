@@ -1,0 +1,12 @@
+{
+  "username": "James",
+  "password": "james1500",
+  "email": "james.bond@example.com",
+  "contactName": "James Bond",
+  "message": "I love this page, congratulations to the developers!",
+  "country": "Germany",
+  "city": "Hamburg",
+  "creditCard": "123456789",
+  "month": "april",
+  "year": "2050"
+}

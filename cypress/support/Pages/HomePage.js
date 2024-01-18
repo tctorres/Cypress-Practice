@@ -3,16 +3,13 @@ var pageLocators = {
     phoneCat: '[onclick="byCat(\'phone\')"]',
     laptopsCat: '[onclick="byCat(\'notebook\')"]',
     monitorsCat: '[onclick="byCat(\'monitor\')"]',
-    carouselNextIcon: '.carousel-control-next-icon',
-    carouselPrevIcon: '.carousel-control-prev-icon',
-    firstSlide: '[alt = "First slide"]',
-    secondSlide: '[alt = "Second slide"]',
-    thirdSlide: '[alt = "Third slide"]',
+    carouselNextIcon: '[data-slide="next"]',
+    carouselPrevIcon: '[data-slide="prev"]',
+    firstSlide: '[data-slide-to="0"]',
+    secondSlide: '[data-slide-to="1"]',
+    thirdSlide: '[data-slide-to="2"]',
     samsungGS6: 'div:nth-child(1) > div > div > h4 > a',
-    nokiaL1520: 'div:nth-child(2) > div > div >h4 > a',
     sonyVaioi5: 'div:nth-child(8) > div > div >h4 > a',
-    sonyVaioi7: 'div:nth-child(9) > div > div >h4 > a',
-    appleMonitor:. 'div:nth-child(1) > div > div > h4 > a',
     asusMonitor: 'div:nth-child(2) > div > div > h4 > a',
     addPhoneToCart:'[onclick="addToCart(1)"]',
     addLaptopToCart: '[onclick="addToCart(8)"]',
@@ -43,15 +40,46 @@ class HomePage{
     clickMonitorsCat(){return this.monitorsCat().click();}
     clickCarouselNextIcon(){return this.carouselNextIcon().click();}
     clickCarouselPrevIcon(){return this.carouselPrevIcon().click();}
-    clickFirstSlide(){return this.firstSlide().click();}
-    clickSecondSlide(){return this.secondSlide().click();}
-    clickThirdSlide(){return this.thirdSlide().click();}
     clickSamsungGS6(){return this.samsungGS6().click();}
     clickSonyVaioi5(){return this.sonyVaioi5().click();}
     clickAsusMonitor(){return this.asusMonitor().click();}
     clickToAddPhone(){return this.addPhoneToCart().click() + '{enter}';}
     clickToAddLaptop(){return this.addLaptopToCart().click + '{enter}';}
     clickToAddMonitor(){return this.addMonitorToCart().click + '{enter}';}
+
+    checkSlide(slide){
+        switch(slide){
+            case '1':
+                this.firstSlide().should('have.class', 'active');
+                break;
+            case '2':
+                this.secondSlide().should('have.class', 'active');
+                break;
+            case '3':
+                this.thirdSlide().should('have.class', 'active');
+                break;
+            default:
+                throw new Error('Invalid slide number: ${slide}');
+        }
+
+
+    }
+    clickSlide(button){
+            switch(button){
+                case '1':
+                    this.firstSlide().click();
+                    break;
+                case '2':
+                    this.secondSlide().click();
+                    break;
+                case '3':
+                    this.thirdSlide().click();
+                    break;
+                default:
+                    throw new Error('Invalid button number: ${button}');
+            }
+
+        }
 
 
 }

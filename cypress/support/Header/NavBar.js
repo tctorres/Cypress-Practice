@@ -18,7 +18,7 @@ class NavBar{
 
     clickHomeNav(){return this.homeNav().click();}
     clickContactNav(){return this.contactNav().click();}
-    clickAboutUsNav(){return this.aboutUsNav().click()}
+    clickAboutUsNav(){return this.aboutUsNav().click();}
     clickCartNav(){return this.cartNav().click();}
     clickLogInNav(){return this.logInNav().click();}
     clickSignUpNav(){return this.signUpNav().click();}
