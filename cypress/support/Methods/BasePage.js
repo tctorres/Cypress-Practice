@@ -18,6 +18,24 @@ class BasePage{
 clickCarouselNextIcon(){return homePage.carouselNextIcon().click();}
 clickCarouselPrevIcon(){return homePage.carouselPrevIcon().click();}
 
+    isItemVisible(itemVisible){
+        switch(newItem){
+            case 'addToCart':
+                homePage.addMonitorToCart().should('have.class', 'btn btn-success btn-lg');
+                break;
+            case 'SamsungGS6':
+                homePage.samsungGS6().should('have.class', 'col-lg-4 col-md-6 mb-4');
+                break;
+            case 'SonyVaioi5':
+                homePage.sonyVaioi5().should('be.visible');
+                break;
+            case 'AsusMonitor':
+                homePage.asusMonitor().should('be.visible');
+                break;
+            default:
+                throw new Error('Element not found: ${itemVisible}');
+        }
+    }
 
     isLinkVisible(link){
         switch(link){
@@ -47,7 +65,6 @@ clickCarouselPrevIcon(){return homePage.carouselPrevIcon().click();}
     addItemToCart(newItem){
         switch(newItem){
             case 'SamsungGS6':
-                homePage.samsungGS6().click()
                 homePage.addPhoneToCart().click() + '{enter}';
                 break;
             case 'SonyVaioi5':
@@ -70,22 +87,31 @@ clickCarouselPrevIcon(){return homePage.carouselPrevIcon().click();}
     clickCloseBtnLogIn(){return loginModal.closeBtnLogIn().click();}
     clickLoginBtn(){return loginModal.logInBtn().click();}
 
-    clickPlayBtnAbtUs(){return aboutUsModal.playBtnAbtUs().click();}
-    clickCloseBtnAbtUs(){return aboutUsModal.closeBtnAbtUs().click();}
 
-    clickPlaceOrderBtn(){return cartPage.placeOrderBtn().click();}
-    typeInputNameCart(name){return cartPage.inputNameCart().type(name);}
-    typeInputCountry(country){return cartPage.inputCountry().type(country);}
-    typeInputCity(city){return cartPage.inputCity().type(city);}
-    typeInputCreditCard(creditCard){return cartPage.inputCreditCard().type(creditCard);}
-    typeInputMonth(month){return cartPage.inputMonth().type(month);}
-    typeInputYear(year){return cartPage.inputYear().type(year);}
-    clickCloseBtnCart(){return cartPage.closeBtnCart().click();}
-    clickPurchaseBtnCart(){return cartPage.purchaseBtnCart().click();}
-    deleteMonitor(){return cartPage.deleteMonitor().click();}
-    deleteLaptop(){return cartPage.deleteLaptop().click();}
-    deletePhone(){return cartPage.deletePhone().click();}
-    clickOkBtn(){return cartPage.okBtn().click();}
+    placeOrderData(name, country, city, creditCard, month, year){
+        cartPage.inputNameCart().type(name);
+        cartPage.inputCountry().type(country);
+        cartPage.inputCity().type(city);
+        cartPage.inputCreditCard().type(creditCard);
+        cartPage.inputMonth().type(month);
+        cartPage.inputYear().type(year);
+    }
+
+    deleteItem(itemToDelete){
+        switch(itemToDelete){
+            case 'SamsungGS6':
+                homePage.deletePhone().click();
+                break;
+            case 'SonyVaioi5':
+                homePage.deleteLaptop().click();
+                break;
+            case 'AsusMonitor':
+                homePage.deleteMonitor().click();
+                break;
+            default:
+                throw new Error('item not found: ${itemToDelete}');
+        }
+    }
 
     clickOnLink(element){
         switch(element){

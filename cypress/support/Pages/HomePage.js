@@ -13,7 +13,7 @@ var pageLocators = {
     addPhoneToCart:'[onclick="addToCart(1)"]',
     addLaptopToCart: '[onclick="addToCart(8)"]',
     addMonitorToCart: '[onclick="addToCart(14)"]',
-    productsHome : '#tbodyid',
+    productsHome: '#tbodyid',
 
 }
 class HomePage{
@@ -26,7 +26,7 @@ class HomePage{
     firstSlide(){return cy.get(pageLocators.firstSlide);}
     secondSlide(){return cy.get(pageLocators.secondSlide);}
     thirdSlide(){return cy.get(pageLocators.thirdSlide);}
-    samsungGS6(){return cy.get(pageLocators.samsungGS6, {timeout: 3000});}
+    samsungGS6(){return cy.get(pageLocators.samsungGS6);}
     sonyVaioi5(){return cy.get(pageLocators.sonyVaioi5);}
     asusMonitor(){return cy.get(pageLocators.asusMonitor);}
     addPhoneToCart(){return cy.get(pageLocators.addPhoneToCart);}
