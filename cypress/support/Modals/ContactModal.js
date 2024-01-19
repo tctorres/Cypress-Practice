@@ -1,4 +1,4 @@
-var contactLocators {
+var contactLocators = {
     inputEmail: '#recipient-email',
     inputName: '#recipient-name',
     inputMessage: '#message-text',
@@ -6,7 +6,7 @@ var contactLocators {
     sendMessageContact: '#exampleModal > div > div > div.modal-footer > button.btn.btn-primary',
 
 }
-class contactLocators{
+class ContactModal{
     inputEmail(){return cy.get(contactLocators.inputEmail);}
     inputName(){return cy.get(contactLocators.inputName);}
     inputMessage(message){return cy.get(contactLocators.inputMessage);}

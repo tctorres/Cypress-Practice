@@ -1,4 +1,4 @@
-var cartLocators{
+var cartLocators = {
     placeOrderBtn: 'btn btn-success',
     inputNameCart: '#name',
     inputCountry: '#country',
@@ -12,6 +12,7 @@ var cartLocators{
     deleteLaptop: '[onclick="deleteItem(\'75513e3d-7bd0-522c-0338-b1da28b0a931\')"]',
     deletePhone: '[onclick="deleteItem(\'6a4a85af-3cbf-4efc-75b1-80d5e3c1b72d\')"]',
     okBtn: 'confirm btn btn-lg btn-primary',
+    tableResponsive: '.table-responsive',
 }
 class CartPage{
     placeOrderBtn(){return cy.get(cartLocators.placeOrderBtn);}
@@ -27,20 +28,8 @@ class CartPage{
     deleteLaptop(){return cy.get(cartLocators.deleteLaptop);}
     deletePhone(){return cy.get(cartLocators.deletePhone);}
     okBtn(){return cy.get(cartLocators.okBtn);}
+    tableResponsive(){return cy.get(cartLocators.tableResponsive);}
 
 
-    clickPlaceOrderBtn(){return this.placeOrderBtn().click();}
-    typeInputNameCart(name){return this.inputNameCart().type(name);}
-    typeInputCountry(country){return this.inputCountry().type(country);}
-    typeInputCity(city){return this.inputCity().type(city);}
-    typeInputCreditCard(creditCard){this.inputCreditCard().type(creditCard);}
-    typeInputMonth(month){return this.inputMonth().type(month);}
-    typeInputYear(year){return this.inputYear().type(year);}
-    clickCloseBtnCart(){return this.closeBtnCart().click();}
-    clickPurchaseBtnCart(){return this.purchaseBtnCart().click();}
-    deleteMonitor(){return this.deleteMonitor().click();}
-    deleteLaptop(){return this.deleteLaptop().click();}
-    deletePhone(){return this.deletePhone().click();}
-    clickOkBtn(){return this.okBtn().click();}
 }
 export default CartPage;
